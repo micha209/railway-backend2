@@ -45,9 +45,9 @@ app.get('/api/users', async (req, res) => {
 app.post('/api/users/seed', async (req, res) => {
   try {
     const users = [
-      { id: 1, name: 'Alice', email: 'alice@example.com' },
-      { id: 2, name: 'Bob', email: 'bob@example.com' },
-      { id: 3, name: 'Charlie', email: 'charlie@example.com' }
+      { id: 1, name: 'jjAlice', email: 'alice@example.com' },
+      { id: 2, name: 'gammm', email: 'jjjb@example.com' },
+      { id: 3, name: 'Chhharlie', email: 'charhhlie@example.com' }
     ];
 
     for (const user of users) {
@@ -88,3 +88,4 @@ app.use('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Serveur démarré sur le port ${PORT}`);
 });
+
