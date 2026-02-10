@@ -44,14 +44,14 @@ app.get('/api/users', async (req, res) => {
 // Injecter des users (1 seule fois)
 app.post('/api/users/seed', async (req, res) => {
   try {
-    const users = [
+    const materials = [
       { id: 1, name: 'Alice', email: 'alice@example.com' },
       { id: 2, name: 'Bob', email: 'bob@example.com' },
       { id: 3, name: 'Charlie', email: 'charlie@example.com' }
     ];
 
-    for (const user of users) {
-      await db.ref(`users/${user.id}`).set(user);
+    for (const material of materials) {
+      await db.ref(`materials/${materials.id}`).set(material);
     }
 
     res.json({ message: '✅ Utilisateurs ajoutés dans Firebase' });
@@ -88,5 +88,6 @@ app.use('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Serveur démarré sur le port ${PORT}`);
 });
+
 
 
