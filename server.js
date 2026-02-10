@@ -31,9 +31,9 @@ app.get('/api/health', (req, res) => {
 });
 
 // 🔥 USERS DEPUIS FIREBASE
-app.get('/api/materials', async (req, res) => {
+app.get('/api/users', async (req, res) => {
   try {
-    const snapshot = await db.ref('materials').once('value');
+    const snapshot = await db.ref('users').once('value');
     const data = snapshot.val();
     res.json(data ? Object.values(data) : []);
   } catch (error) {
@@ -44,14 +44,14 @@ app.get('/api/materials', async (req, res) => {
 // Injecter des users (1 seule fois)
 app.post('/api/users/seed', async (req, res) => {
   try {
-    const materials = [
+    const users = [
       { id: 1, name: 'Alice', email: 'alice@example.com' },
       { id: 2, name: 'Bob', email: 'bob@example.com' },
       { id: 3, name: 'Charlie', email: 'charlie@example.com' }
     ];
 
-    for (const material of materials) {
-      await db.ref(`materials/${materials.id}`).set(material);
+    for (const user of users) {
+      await db.ref(`users/${user.id}`).set(user);
     }
 
     res.json({ message: '✅ Utilisateurs ajoutés dans Firebase' });
@@ -88,7 +88,3 @@ app.use('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Serveur démarré sur le port ${PORT}`);
 });
-
-
-
-
