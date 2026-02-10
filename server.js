@@ -31,7 +31,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // 🔥 USERS DEPUIS FIREBASE
-app.get('/api/users', async (req, res) => {
+app.get('/api/materials', async (req, res) => {
   try {
     const snapshot = await db.ref('materials').once('value');
     const data = snapshot.val();
@@ -88,6 +88,7 @@ app.use('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Serveur démarré sur le port ${PORT}`);
 });
+
 
 
 
